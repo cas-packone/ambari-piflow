@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<metainfo>
+  <schemaVersion>2.0</schemaVersion>
+  <services>
+    <service>
+      <name>PIFLOW</name>
+      <displayName>PiFlow</displayName>
+      <comment>piflow is an easy to use, powerful big data pipeline system..</comment>
+      <version>0.5</version>
+      <components>
+        <component>
+          <name>PIFLOW_SERVER</name>
+          <displayName>PiFlow Server</displayName>
+          <category>MASTER</category>
+		  <cardinality>1</cardinality>
+		  <timelineAppid>piflow_server</timelineAppid>
+          <commandScript>
+            <script>scripts/piflow_server.py</script>
+            <scriptType>PYTHON</scriptType>
+            <timeout>600</timeout>
+          </commandScript>
+        </component>
+		<component>
+          <name>PIFLOW_WEB</name>
+          <displayName>PiFlow Web</displayName>
+          <category>MASTER</category>
+		  <cardinality>1</cardinality>
+		  <timelineAppid>piflow_web</timelineAppid>
+          <commandScript>
+            <script>scripts/piflow_web.py</script>
+            <scriptType>PYTHON</scriptType>
+            <timeout>600</timeout>
+          </commandScript>
+        </component>
+      </components>
+    
+	  <quickLinksConfigurations>
+        <quickLinksConfiguration>
+          <fileName>quicklinks.json</fileName>
+          <default>true</default>
+        </quickLinksConfiguration>
+      </quickLinksConfigurations>
+    </service>
+  </services>
+</metainfo>
