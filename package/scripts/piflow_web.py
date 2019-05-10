@@ -26,8 +26,8 @@ class PiFlowWebMasterMaster(Script):
         env.set_params(params)
         self.configure(env)
         Execute('cd /data/piflow/piflowWeb/ && sh start.sh', ignore_failures=True)
-        sleep(15)
-        Execute("lsof -i:6001 | grep -v grep | grep \"java\" | awk '{print $2}' >/data/piflow/piflowWeb/piflowWeb.pid")
+        sleep(3)
+        Execute("ps -ef | grep java | grep piflow-web.jar | grep -v grep | awk '{print $2}' >/data/piflow/piflowWeb/piflowWeb.pid")
 
     def stop(self, env):
         import params
