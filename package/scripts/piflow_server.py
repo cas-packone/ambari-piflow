@@ -30,8 +30,7 @@ class PiFlowServerMaster(Script):
         env.set_params(params)
         self.configure(env)
         Execute('cd /data/piflow/piflowSever/ && nohup sh start.sh > nohup.out 2>&1 &', ignore_failures=True)
-        sleep(5)
-        Execute("lsof -i:8002 | grep -v grep | grep \"java\" | awk '{print $2}' >/data/piflow/piflowSever/piflowSever.pid")
+        Execute("ps -ef | grep java | grep piflow-server-0.9.jar | grep -v grep | awk '{print $2}' >/data/piflow/piflowSever/piflowSever.pid")
       
     def stop(self, env):
         import params
