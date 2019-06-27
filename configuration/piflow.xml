@@ -3,15 +3,15 @@
 
 <configuration supports_adding_forbidden="true">
  <property>
-    <name>piflow_sever</name>
-    <description>piflow_sever</description>
+    <name>piflow_server</name>
+    <description>piflow_server</description>
     <value>
 server.ip=master1.packone
 server.port=8002
 
 spark.master=yarn
 spark.deploy.mode=cluster
-piflow.bundle=/data/piflow/piflowSever/piflow-server-0.9.jar
+piflow.bundle=/data/piflow/piflowServer/piflow-server-0.9.jar
 
 hive.metastore.uris=thrift://master1.packone:9083
 yarn.url=http://master2.packone:8088/ws/v1/cluster/apps/
