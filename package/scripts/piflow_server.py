@@ -22,8 +22,8 @@ class PiFlowServerMaster(Script):
     def configure(self, env):  
         import params
         env.set_params(params)
-        piflow_sever = InlineTemplate(params.piflow_sever)   
-        File(format("/data/piflow/piflowServer/config.properties"), content=piflow_sever)
+        piflow_server = InlineTemplate(params.piflow_server)   
+        File(format("/data/piflow/piflowServer/config.properties"), content=piflow_server)
 
     def start(self, env):
         import params
