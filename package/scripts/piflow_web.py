@@ -26,7 +26,7 @@ class PiFlowWebMasterMaster(Script):
         env.set_params(params)
         self.configure(env)
         Execute('cd /data/piflow/piflowWeb/ && sh start.sh', ignore_failures=True)
-        Execute("ps -ef | grep java | grep piflow-web.jar | grep -v grep | awk '{print $2}' >/data/piflow/piflowWeb/piflowWeb.pid")
+        Execute("ps -ef | grep java | grep piflow-web.jar | grep -v grep | awk '{print $2}' >/data/piflow/piflowWeb/pw.pid")
 
     def stop(self, env):
         import params
@@ -40,7 +40,7 @@ class PiFlowWebMasterMaster(Script):
         self.start(env)
 
     def status(self, env):
-        check_process_status("/data/piflow/piflowWeb/piflowWeb.pid")
+        check_process_status("/data/piflow/piflowWeb/pw.pid")
 
 
 if __name__ == "__main__":
